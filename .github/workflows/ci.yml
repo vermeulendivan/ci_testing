@@ -22,7 +22,7 @@ env:
 jobs:
   test:
     runs-on: ubuntu-20.04
-    name: Running tests on QGIS ${{ matrix.qgis_version_tag }}
+    name: Running tests on Ubuntu for QGIS ${{ matrix.qgis_version_tag }}
 
     strategy:
       fail-fast: false
@@ -74,7 +74,7 @@ jobs:
           docker-compose exec -T qgis-testing-environment qgis_testrunner.sh test_suite.test_package
 
   test2:
-    name: Run PSScriptAnalyzer on Windows
+    name: Running tests on Windows for QGIS ${{ matrix.qgis_version_tag }}
     runs-on: windows-latest
 
     strategy:
@@ -97,7 +97,7 @@ jobs:
         env:
           QGIS_VERSION_TAG: ${{ matrix.qgis_version_tag }}
         run: |
-          echo QGIS_VERSION_TAG=${QGIS_VERSION_TAG} IMAGE=${IMAGE} ON_TRAVIS=true MUTE_LOGS=${MUTE_LOGS} WITH_PYTHON_PEP=${WITH_PYTHON_PEP} > .env
+          echo IMAGE=${IMAGE} ON_TRAVIS=true MUTE_LOGS=${MUTE_LOGS} WITH_PYTHON_PEP=${WITH_PYTHON_PEP} > .env
 
       - name: Install poetry
         uses: Gr1N/setup-poetry@v8
