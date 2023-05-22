@@ -110,5 +110,5 @@ jobs:
       - name: Preparing test environment
         run: |
           type .env
-          docker pull "${IMAGE}":${{ matrix.qgis_version_tag }}
+          docker pull qgis/qgis:release-3_16
           
