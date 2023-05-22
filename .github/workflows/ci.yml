@@ -97,7 +97,7 @@ jobs:
         env:
           QGIS_VERSION_TAG: ${{ matrix.qgis_version_tag }}
         run: |
-          type << EOF > .env
+          cat .env
           QGIS_VERSION_TAG=${QGIS_VERSION_TAG}
           IMAGE=${IMAGE}
           ON_TRAVIS=true
