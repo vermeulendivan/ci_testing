@@ -97,7 +97,7 @@ jobs:
         env:
           QGIS_VERSION_TAG: ${{ matrix.qgis_version_tag }}
         run: |
-          echo IMAGE=${IMAGE} ON_TRAVIS=true MUTE_LOGS=${MUTE_LOGS} WITH_PYTHON_PEP=${WITH_PYTHON_PEP} > .env
+          echo QGIS_VERSION_TAG=release-3_16 IMAGE=qgis/qgis ON_TRAVIS=true MUTE_LOGS=true WITH_PYTHON_PEP=true > .env
 
       - name: Install poetry
         uses: Gr1N/setup-poetry@v8
