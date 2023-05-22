@@ -107,6 +107,14 @@ jobs:
       - name: Install plugin dependencies
         run: poetry install
 
+      - name: Preparing test environment
+        run: |
+          type .env
+          docker pull "${IMAGE}":${{ matrix.qgis_version_tag }}
+          poetry run python admin.py build --tests
+          docker-compose up -d
+          sleep 10
+
       - name: Install PSScriptAnalyzer module
         shell: pwsh
         run: |
