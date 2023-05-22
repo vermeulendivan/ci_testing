@@ -110,17 +110,4 @@ jobs:
       - name: Preparing test environment
         run: |
           type .env
-          docker pull "${IMAGE}":${{ matrix.qgis_version_tag }}
-          poetry run python admin.py build --tests
-          docker-compose up -d
-          sleep 10
-
-      - name: Install PSScriptAnalyzer module
-        shell: pwsh
-        run: |
-          Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module PSScriptAnalyzer -ErrorAction Stop
-      - name: Get list of rules
-        shell: pwsh
-        run: |
-          Get-ScriptAnalyzerRule
+          
