@@ -76,6 +76,17 @@ jobs:
   test2:
     name: Run PSScriptAnalyzer on Windows
     runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        qgis_version_tag:
+          - release-3_16
+          - release-3_20
+          - release-3_22
+          - release-3_24
+          - final-3_26_0
+    
     steps:
       - uses: actions/checkout@v3
       - name: Install PSScriptAnalyzer module
