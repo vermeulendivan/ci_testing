@@ -97,15 +97,13 @@ jobs:
         env:
           QGIS_VERSION_TAG: ${{ matrix.qgis_version_tag }}
         run: |
-          echo "" > .env
-          type
+          cat << EOF > .env
           QGIS_VERSION_TAG=${QGIS_VERSION_TAG}
           IMAGE=${IMAGE}
           ON_TRAVIS=true
           MUTE_LOGS=${MUTE_LOGS}
           WITH_PYTHON_PEP=${WITH_PYTHON_PEP}
           EOF
-          > .env
 
       - name: Install PSScriptAnalyzer module
         shell: pwsh
