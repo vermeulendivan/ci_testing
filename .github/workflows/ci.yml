@@ -92,13 +92,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-#      - uses: actions/checkout@v3
 
       - name: Preparing docker-compose environment
         env:
           QGIS_VERSION_TAG: ${{ matrix.qgis_version_tag }}
         run: |
-#          cat << EOF > .env
           QGIS_VERSION_TAG=${QGIS_VERSION_TAG}
           IMAGE=${IMAGE}
           ON_TRAVIS=true
