@@ -147,6 +147,6 @@ jobs:
       - name: Preparing test environment
         run: |
           cat .env
-          docker pull "${IMAGE}":${{ matrix.qgis_version_tag }}
+          docker pull qgis/qgis:${{ matrix.qgis_version_tag }}
           docker-compose up -d
           sleep 10
