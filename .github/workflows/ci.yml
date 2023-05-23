@@ -141,14 +141,12 @@ jobs:
           IMAGE=${IMAGE}
           ON_TRAVIS=true
           MUTE_LOGS=${MUTE_LOGS}
-          
-          
           WITH_PYTHON_PEP=${WITH_PYTHON_PEP}
           EOF
 
-      - name: Install poetry
-        uses: Gr1N/setup-poetry@v8
-        with:
-          poetry-version: 1.2.2
-
-      
+      - name: Preparing test environment
+        run: |
+          cat .env
+          docker pull "${IMAGE}":${{ matrix.qgis_version_tag }}
+          docker-compose up -d
+          sleep 10
