@@ -112,3 +112,24 @@ jobs:
           type .env
           docker pull qgis/qgis:release-3_16
           
+  test3:
+    name: Running tests on MacOS for QGIS ${{ matrix.qgis_version_tag }}
+    runs-on: macos-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        qgis_version_tag:
+          - release-3_16
+          - release-3_20
+          - release-3_22
+          - release-3_24
+          - final-3_26_0
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      
