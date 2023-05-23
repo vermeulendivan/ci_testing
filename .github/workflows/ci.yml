@@ -73,7 +73,7 @@ jobs:
           docker-compose exec -T qgis-testing-environment sh -c "pip3 install flask"
           docker-compose exec -T qgis-testing-environment qgis_testrunner.sh test_suite.test_package
 
-  test2:
+  windows-test:
     name: Running tests on Windows for QGIS ${{ matrix.qgis_version_tag }}
     runs-on: windows-latest
 
@@ -112,7 +112,7 @@ jobs:
           type .env
           docker pull qgis/qgis:release-3_16
           
-  test3:
+  macos-test:
     name: Running tests on MacOS for QGIS ${{ matrix.qgis_version_tag }}
     runs-on: macos-latest
 
@@ -141,6 +141,8 @@ jobs:
           IMAGE=${IMAGE}
           ON_TRAVIS=true
           MUTE_LOGS=${MUTE_LOGS}
+          
+          
           WITH_PYTHON_PEP=${WITH_PYTHON_PEP}
           EOF
 
