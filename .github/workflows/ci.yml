@@ -134,7 +134,7 @@ jobs:
 
       - name: Install docker
         run: |
-          HOMEBREW_NO_AUTO_UPDATE=1 brew install docker@24.0.1
+          HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask docker@1.8.3
           sudo /Applications/Docker.app/Contents/MacOS/Docker --unattended --install-privileged-components
           open -a /Applications/Docker.app --args --unattended --accept-license
           echo "We are waiting for Docker to be up and running. It can take over 2 minutes..."
